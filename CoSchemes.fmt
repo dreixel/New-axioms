@@ -1,0 +1,123 @@
+%include polycode.fmt
+%include forall.fmt
+
+%if not color
+  \definecolor{blue}{named}{black}
+  \definecolor{red}{named}{black}
+  \definecolor{darkgreen}{named}{black}
+  \definecolor{orange}{named}{black}
+  \definecolor{green}{named}{black}
+  \renewcommand{\ty}[1]{\mathsf{#1}}
+%endif 
+
+%if style == newcode
+
+% Spacing
+%format ^             =
+%format ^^            = " "
+%format ^^.           =
+%format ...           = "undefined"
+
+%else
+
+% Spacing
+%format ^             = " "
+%format ^^            = "\;"
+
+% Pretty-printing
+%format ^^.           = "\;."
+%format ...           = "\ldots "
+%format family        = "\keyw{family}"
+
+%format (OVER (x))      = "\overline{" x "}"
+%format (SUB (x) (i))   = x "_{" i "}"
+%format (SUBST (x) (y)) = "[" x "/" y "]"
+%format (REFL (x))      = "\langle" x "\rangle"
+
+%format alpha         = "\alpha"
+%format beta          = "\beta"
+%format tau           = "\tau"
+%format Phi           = "\Phi"
+%format phi           = "\phi"
+%format Psi           = "\Psi"
+%format psi           = "\psi"
+%format Theta         = "\Theta"
+%format theta         = "\theta"
+%format Gamma         = "\Gamma"
+%format gamma         = "\gamma"
+%format kappa         = "\kappa"
+%format eta           = "\eta"
+%format sigma         = "\sigma"
+%format entails       = "\vdash"
+%format IN            = "\in"
+%format FOREACH       = "\text{for each}"
+%format EMPTY         =
+%format MATCHES       = "\text{matches with}"
+%format <=>           = "\equiv"
+
+% */where spacing magic
+\newcommand\plainwhere{\keyw{where}}
+\newcommand\spacewhere{\;\plainwhere}
+\let\where\plainwhere
+%format where = "\where "
+%format * = "*\let\where\spacewhere " 
+%format ) = ")\let\where\plainwhere "
+%format * = "\mathord{\kind{*}}\let\where\spacewhere\let\multicon\kind " 
+
+
+% Type variables
+%format aT            = "\tyid{a}"
+%format bT            = "\tyid{b}"
+%format cT            = "\tyid{c}"
+%format dT            = "\tyid{d}"
+%format fT            = "\tyid{f}"
+%format gT            = "\tyid{g}"
+%format rT            = "\tyid{r}"
+%format tT            = "\tyid{t}"
+
+% Type constructors
+%format TrueT         = "\tycon{True}"
+%format FalseT        = "\tycon{False}"
+%format FT            = "\tycon{F}"
+%format GT            = "\tycon{G}"
+%format HasSel        = "\tycon{HasSel}"
+%format M1            = "\tycon{M_1}"
+%format DT            = "\tycon{D}"
+%format CT            = "\tycon{C}"
+%format ST            = "\tycon{S}"
+%format NoSelector    = "\tycon{NoSelector}"
+
+
+% Standard types
+%format Maybe         = "\tycon{Maybe}"
+%format Rational      = "\tycon{Rational}"
+%format String        = "\tycon{String}"
+%format Int           = "\tycon{Int}"
+%format Bool          = "\tycon{Bool}"
+%format ShowS         = "\tycon{ShowS}"
+
+% Constructors
+%format False         = "\con{False}"
+%format True          = "\con{True}"
+
+
+% Type classes
+%format Show          = "\tycls{Show}"
+%format Functor       = "\tycls{Functor}"
+
+
+% Beautification
+%format ax1               = ax "_" 1
+%format ax2               = ax "_" 2
+
+
+% Macros used for commenting on the article
+%if not draft
+\newcommand{\REM}[3]{}
+\newcommand{\Pedro}[1]{}
+%else
+\newcommand{\REM}[3]{{\small \textcolor{#2}{[\textbf{#1:} #3]}}}
+\newcommand{\Pedro}[1]{\REM{Pedro}{blue}{#1}}
+%endif
+
+%endif

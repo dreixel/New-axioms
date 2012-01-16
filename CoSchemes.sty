@@ -1,0 +1,63 @@
+\RequirePackage[silent]{polytable}
+\RequirePackage{xcolor}
+\RequirePackage{booktabs}
+\RequirePackage{xspace}
+\RequirePackage{graphicx}
+\RequirePackage{array}
+\RequirePackage{mathpartir}
+\RequirePackage{amsthm}
+\RequirePackage{amsmath}
+\RequirePackage{hyperref}
+
+\hypersetup{
+    pdftitle={},
+    pdfauthor={},
+    bookmarks=true,         % show bookmarks bar?
+    unicode=false,          % non-Latin characters in Acrobat's bookmarks
+    pdftoolbar=true,        % show Acrobat's toolbar?
+    pdfmenubar=true,        % show Acrobat's menu?
+    pdffitwindow=true,      % page fit to window when opened
+    pdfnewwindow=true,      % links in new window
+    pdfstartview=FitH,      % Fit window horizontally
+    colorlinks=false,       % false: boxed links; true: colored links
+    linkcolor=red,          % color of internal links
+    citecolor=green,        % color of links to bibliography
+    filecolor=magenta,      % color of file links
+    urlcolor=cyan           % color of external links
+}
+
+\newtheorem{thm}{Theorem}[section] 
+\newtheorem{lem}[thm]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{law}[thm]{Law}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+
+\makeatletter
+\global\let\arraycr\@@arraycr
+\makeatother
+
+\newcommand{\ignore}[1]{}
+
+\def\sectionautorefname{Section}
+\def\subsectionautorefname{Section}
+\def\subsubsectionautorefname{Section}
+
+\newcommand*{\OmegaLang}{$\Omega$mega\xspace}
+\newcommand*{\FCP}{$\text{F}^{\uparrow}_\text{C}$\xspace}
+\newcommand*{\FC}{$\text{F}_\text{C}$\xspace}
+
+\newcommand{\ty}[1]{\mathit{#1}}
+\newcommand{\con}[1]{{\color{blue}\mathit{#1}}}
+\newcommand{\consyml}[1]{\mathrel{\con{\mathord{#1}}}}
+\newcommand{\consym}[1]{\mathrel{\con{\mathord{#1}}}}
+\newcommand{\id}[1]{\mathit{#1}}
+\newcommand{\tyid}[1]{{\color{red}\ty{#1}}}
+\newcommand{\keyw}[1]{\mathbf{#1}}
+\newcommand{\tycon}[1]{{\color{red}\ty{#1}}}
+\newcommand{\tyconsyml}[1]{\mathrel{\tycon{\mathord{#1}}}}
+\newcommand{\tyconsym}[1]{\mathrel{\tycon{\mathord{#1}}}}
+\newcommand{\tycls}[1]{{\color{red}\ty{#1}}}
+\colorlet{darkgreen}{green!30!black}
+\newcommand{\kind}[1]{{\color{green}\ty{#1}}}
